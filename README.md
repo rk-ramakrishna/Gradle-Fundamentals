@@ -214,7 +214,7 @@ Gradle greatly simplifies the build process and automates build management.**
 	
 	* **It is quite possible for tasks to depend on other tasks. For example, the task that runs test cases is dependent on the task that compiles Java code**.
 	
-	* **Corresponding to each task in the build file, Gradle creates an instance of org.gradle.api.Task. By default it would be org.gradle.api. DefaultTask class**.
+	* **Corresponding to each task in the build file, Gradle creates an instance of org.gradle.api.Task. By default it would be org.gradle.api.DefaultTask class**.
 	
 	* Below are commonly used task-related API properties and methods.
 	
@@ -229,6 +229,7 @@ Gradle greatly simplifies the build process and automates build management.**
 	  
     * Below are syntax to define task in Gradle file 
      
+	   **task myTask** 
        **task myTask { configure closure }**          </br>
 	   **task myTask(type: SomeType)**                </br>
 	   **task myTask(type: SomeType) { configure closure }**      </br>	
@@ -248,6 +249,17 @@ Gradle greatly simplifies the build process and automates build management.**
       all projects.
 	 
     * The path of the task is the concatenation of the owning project's path and the task's name. Path elements are separated using the ":" character 	 
+	
+	* Every single task has a list of actions that are executed while the task is run.
+
+	* doFirst and doLast methods are used to add an action at the beginning or to the end of the list respectively. 
+	
+	* It’s possible to add multiple actions to a task, however it is rare.
+	
+	* **Tip**
+	  If you use Groovy to implement Gradle scripts you may also spot << which is nothing else than an alias for doLast method. It’s been already deprecated and scheduled to be removed, however it still remains quite popular. 
+
+	
 		
 	
 ## References

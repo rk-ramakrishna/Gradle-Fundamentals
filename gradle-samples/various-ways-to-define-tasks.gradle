@@ -1,0 +1,45 @@
+
+/*Note:  
+
+1. Please be note that every task has configuration and list of actions to be executed at the begining or at the end of task. 
+2. Actions to be executed at begining defined in doFirst closure where as Actions to be executed at end defined in doLast closure
+3. Configurations of task defined outside of doFirst & doLast closures  
+4. Every Gradle build run consists of 3 phases:
+
+Initialisation — in this phase Gradle resolves which projects (yes, plural in case of a multi-module project) will be included in the build and creates an instance of a Project for each of the included projects.
+
+Configuration — in this phase previously created Project objects are configured, and for every single object related build script is executed. Tasks, configurations and multiple other objects are created and configured accordingly at this phase.
+
+Execution — in this phase the tasks created in the previous phase and resolved based on the arguments passed via command line interface are executed.
+In our simple snippet, there’s no execution phase at all, no additional arguments were passed. Since everything happens in configuration phase — b and d are skipped. What’s important, although e was printed to the standard output, it doesn’t mean that task t5 has run — it has been configured.
+
+
+*/
+
+
+//Below is an example of defining task and it's configuration separately.
+
+task taskA; 
+
+taskA {
+	println("It's taskA configuration")
+}
+
+
+//Below is an example of defining task with configuration and actions to be executed at begining and end
+
+task taskB{
+
+	//configuration of task 
+	println("It's taskB configuration")
+	
+	//Actions executed at begining
+	doFirst {
+		println("Execution first in taskB")
+	}
+	
+	//Actions executed at end
+	doLast {
+		println("Execution last in taskB")
+	}
+} 
