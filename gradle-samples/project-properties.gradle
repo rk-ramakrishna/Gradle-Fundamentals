@@ -1,10 +1,10 @@
 ext {
 	project.description = "Test project description"
 	project.group = "org.gradle.api"
-	project.version = "0.0.1"
+	project.version = "0.0.1-SNAPSHOT"
 }
 
-
+ext.artifactType = "Phyton" 
 
 task displayProjectDetails {
 	doLast{
@@ -12,9 +12,6 @@ task displayProjectDetails {
 		println "project description is ----> ${project.description}"
 		println "project group is ----> ${project.group}"
 		println "project version is ----> ${project.version}"
+		println "Artifact type is ----> ${artifactType}"
 	}
 }
-
-
-
-// Note: In Groovy, difference between print & println is - print just prints output in console whereas println prints output in console and move cursor to next line 

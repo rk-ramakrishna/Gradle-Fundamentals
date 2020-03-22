@@ -151,7 +151,7 @@ Gradle greatly simplifies the build process and automates build management.**
 	<img src="static/images/gradle-init-files.PNG">
     </p>
 
-7. Please refer more information about hello gradle world project here https://github.com/rk-ramakrishna/gradle_learnings/tree/master/gradle-samples#hello-gradle-world-example
+7. Please refer more information about hello gradle world project here https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#hello-gradle-world-example
 	  
  
 
@@ -199,17 +199,19 @@ Gradle greatly simplifies the build process and automates build management.**
 		println "Output Language: ${project.outputLang}"
 		println "Environment: ${environment}"
 		
-4.  Please refer display of project properties example here   https://github.com/rk-ramakrishna/gradle_learnings/tree/master/gradle-samples#project-properties-example		
+4.  Please refer display of project properties example here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example		
 
 4.  **Tasks**
 	
-	* Gradle projects are made up of one or more tasks that perform build steps.
+	* **Gradle projects are made up of one or more tasks that perform build steps.**
+	
+	* **A Task represents a single atomic piece of work for a build, such as compiling classes or generating javadoc.**
 
-	* Tasks execute actions such as compile Java source code and generate classes or clean target folders.	
+	* **Tasks execute actions such as compile Java source code and generate classes or clean target folders.**	
 	
-	* It is also possible for tasks to depend on other tasks. For example, the task that runs test cases is dependent on the task that compiles Java code.
+	* **It is quite possible for tasks to depend on other tasks. For example, the task that runs test cases is dependent on the task that compiles Java code**.
 	
-	* Corresponding to each task in the build file, Gradle creates an instance of org.gradle.api.Task. By default it would be org.gradle.api. DefaultTask class.
+	* **Corresponding to each task in the build file, Gradle creates an instance of org.gradle.api.Task. By default it would be org.gradle.api. DefaultTask class**.
 	
 	* Below are commonly used task-related API properties and methods.
 	
@@ -217,7 +219,34 @@ Gradle greatly simplifies the build process and automates build management.**
 	<img src="static/images/task_properties.PNG">
     </p>
 	
+   * Gradle supports two ways to create a new Task 
+   
+      * use the various methods on TaskContainer to create and lookup task instances
+	  * use the task keyword in your build file
+	  
+   * Below are syntax to define task in Gradle file 
+     
+       task myTask { configure closure }
+	   task myTask(type: SomeType)
+	   task myTask(type: SomeType) { configure closure }	
 
+   * Below are few examples to define task in Gradle file  
+      
+      * Example-I:
+			task upper {
+					doLast {
+						String someString = 'mY_nAmE'
+						println "Original: $someString"
+						println "Upper case: ${someString.toUpperCase()}"
+						  }
+					  }
+					  
+   * Each task has a name, which can be used to refer to the task within its owning project, and a fully qualified path, which is unique across all tasks in 
+     all projects.
+	 
+   * The path of the task is the concatenation of the owning project's path and the task's name. Path elements are separated using the ":" character 	 
+		
+	
 ## References
 
 	* Gradle user guide https://docs.gradle.org/current/userguide/userguide.html
