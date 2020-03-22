@@ -1,0 +1,21 @@
+
+**Note:	Every Gradle build has atleast one project & one or more tasks**
+
+1. gradle projects								Displays the sub-projects of root project
+
+2. gradle tasks									Displays a list of available tasks
+
+3. gradle <task> ...							To run a particular task 
+
+4. gradle tasks --all 							Displays all list of available tasks
+
+5. gradle -q clean build						Run Gradle tasks in quiet mode. In quiet mode, Gradle suppresses log messages. 
+
+6. gradle dependencies							Displays all dependencies declared in root project
+
+7. gradle dependencyInsight						Displays the insight into a specific dependency in root project
+
+8. gradle properties							Displays the properties of root project 
+
+
+

@@ -1,0 +1,8 @@
+task helloGradleWorld {
+	doLast{		
+		println 'helloGradleWorld!!'
+	}
+}
+
+
+// Note: In Groovy, difference between print & println is - print just prints output in console whereas println prints output in console and move cursor to next line 

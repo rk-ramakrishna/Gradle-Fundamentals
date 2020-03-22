@@ -1,0 +1,39 @@
+
+
+//Adding task dependency
+task count {
+	dependsOn 'helloGradleWorld'
+	doLast {
+       4.times { println "$it " } 
+    }
+}
+
+task helloGradleWorld {
+	doLast{		
+		println 'helloGradleWorld!!'
+	}
+}
+
+task dependentTask {
+    doLast{
+		println 'This is a dependent task'
+		println "Project Name ${project.name}"
+	}
+}
+
+//Adding task dependencies at runtime
+
+helloGradleWorld.dependsOn dependentTask
+
+
+//Dynamic tasks
+
+4.times { counter ->
+	
+	task "task$counter" {
+		doLast {
+            println "I'm task number $counter"
+        }
+	}
+}
+
