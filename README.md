@@ -180,24 +180,25 @@ Gradle greatly simplifies the build process and automates build management.**
 
     * To access Project API's properties/methods, you can use the **implicit variable project** that Gradle associates with the build file.
 	
-	**Example:**
-		project.description = "Hello World Project"
-		println "Project Description ${project.description}"
+	* **Example:** </br>
+		project.description = "Hello World Project"  </br>
+		println "Project Description ${project.description}" </br>
 		
-	**Tip**
-    Gradle by default looks for a build.gradle file to run a build. It is possible to create build files with different names. In order to trigger builds using those files, you need to use the command line option -b or --build-file, followed by the file name. 
+	* **Tip**
+	  Gradle by default looks for a build.gradle file to run a build. It is possible to create build files with different names. In order to trigger builds using those files, you need to use the command line option -b or --build-file, followed by the file name. 
 	
-	*It is possible to define additional project-level properties using the **syntax <<name>> =<< value>>** inside an **ext {} closure** or using the shortcut **ext.<<name>>=<<value>>.**
+	* It is possible to define additional project-level properties using the **syntax <<name>> =<< value>>** inside an **ext {} closure** or 
+	  using the shortcut **ext.<<name>>=<<value>>.**
 	
-	**Example:**
-		description = "Hello World Project"
-		println "Project Description ${description}"
-		ext {
-		outputLang = "English"
-		}
-		ext.environment = "local"
-		println "Output Language: ${project.outputLang}"
-		println "Environment: ${environment}"
+	* **Example:**   </br>
+		description = "Hello World Project"    </br>
+		println "Project Description ${description}"    </br>
+		ext {                                           </br>
+		outputLang = "English"                          </br>
+		}                                               </br>  
+		ext.environment = "local"                              </br>
+		println "Output Language: ${project.outputLang}"       </br>  
+		println "Environment: ${environment}"                  </br>   
 		
 4.  Please refer display of project properties example here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example		
 
@@ -215,36 +216,36 @@ Gradle greatly simplifies the build process and automates build management.**
 	
 	* Below are commonly used task-related API properties and methods.
 	
-	<p align="center">
-	<img src="static/images/task_properties.PNG">
-    </p>
+			<p align="center">
+				<img src="static/images/task_properties.PNG">
+			</p>
 	
-   * Gradle supports two ways to create a new Task 
+    * Gradle supports two ways to create a new Task 
    
       * use the various methods on TaskContainer to create and lookup task instances
 	  * use the task keyword in your build file
 	  
-   * Below are syntax to define task in Gradle file 
+    * Below are syntax to define task in Gradle file 
      
-       task myTask { configure closure }
-	   task myTask(type: SomeType)
-	   task myTask(type: SomeType) { configure closure }	
+       task myTask { configure closure }          </br>
+	   task myTask(type: SomeType)                </br>
+	   task myTask(type: SomeType) { configure closure }       </br>	
 
-   * Below are few examples to define task in Gradle file  
+    * Below are few examples to define task in Gradle file  
       
-      * Example-I:
-			task upper {
-					doLast {
-						String someString = 'mY_nAmE'
-						println "Original: $someString"
-						println "Upper case: ${someString.toUpperCase()}"
-						  }
-					  }
+      * Example-I:       </br>
+			task upper {                                         </br> 
+					doLast {                                     </br>
+						String someString = 'mY_nAmE'            </br>
+						println "Original: $someString"          </br>   
+						println "Upper case: ${someString.toUpperCase()}"           </br>
+						  }                                      </br>
+					  }                                          </br>
 					  
-   * Each task has a name, which can be used to refer to the task within its owning project, and a fully qualified path, which is unique across all tasks in 
-     all projects.
+    * Each task has a name, which can be used to refer to the task within its owning project, and a fully qualified path, which is unique across all tasks in 
+      all projects.
 	 
-   * The path of the task is the concatenation of the owning project's path and the task's name. Path elements are separated using the ":" character 	 
+    * The path of the task is the concatenation of the owning project's path and the task's name. Path elements are separated using the ":" character 	 
 		
 	
 ## References
