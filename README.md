@@ -9,6 +9,8 @@ Gradle Build automation tool
 * [Three things need to know about Gradle](#three-things-need-to-know-about-gradle)
 * [Hello Gradle world Example](#hello-gradle-world-example)
 * [Understanding Gradle Builds](#understanding-gradle-builds)
+	*  [Project](#project)		
+	*  [Task](#task)
 * [References](#references)
 
 
@@ -161,7 +163,7 @@ Gradle greatly simplifies the build process and automates build management.**
 
 2. **Every Gradle build is made up of one or more projects and each project contains one or more tasks**
 
-3. **Projects**
+3. **Project**
 	
 	* A project in Gradle is an abstract concept that represents an artifact that needs to be built. 
 	  
@@ -202,7 +204,7 @@ Gradle greatly simplifies the build process and automates build management.**
 		
 4.  Please refer display of project properties example here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example		
 
-4.  **Tasks**
+4.  **Task**
 	
 	* **Gradle projects are made up of one or more tasks that perform build steps.**
 	
@@ -216,9 +218,9 @@ Gradle greatly simplifies the build process and automates build management.**
 	
 	* Below are commonly used task-related API properties and methods.
 	
-			<p align="center">
-				<img src="static/images/task_properties.PNG">
-			</p>
+		<p align="center">
+			<img src="static/images/task_properties.PNG">
+		</p>
 	
     * Gradle supports two ways to create a new Task 
    
@@ -227,13 +229,13 @@ Gradle greatly simplifies the build process and automates build management.**
 	  
     * Below are syntax to define task in Gradle file 
      
-       task myTask { configure closure }          </br>
-	   task myTask(type: SomeType)                </br>
-	   task myTask(type: SomeType) { configure closure }       </br>	
+       **task myTask { configure closure }**          </br>
+	   **task myTask(type: SomeType)**                </br>
+	   **task myTask(type: SomeType) { configure closure }**      </br>	
 
     * Below are few examples to define task in Gradle file  
       
-      * Example-I:       </br>
+      * **Example-I:**       </br>
 			task upper {                                         </br> 
 					doLast {                                     </br>
 						String someString = 'mY_nAmE'            </br>
