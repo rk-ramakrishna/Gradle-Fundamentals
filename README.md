@@ -163,7 +163,7 @@ Gradle greatly simplifies the build process and automates build management.**
 
 2. **Every Gradle build is made up of one or more projects and each project contains one or more tasks**
 
-3. **Project**
+*  **Project**
 	
 	* A project in Gradle is an abstract concept that represents an artifact that needs to be built. 
 	  
@@ -202,9 +202,9 @@ Gradle greatly simplifies the build process and automates build management.**
 		println "Output Language: ${project.outputLang}"       </br>  
 		println "Environment: ${environment}"                  </br>   
 		
-4.  Please refer display of project properties example here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example		
+    * Please refer display of project properties example here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example		
 
-4.  **Task**
+*  **Task**
 	
 	* **Gradle projects are made up of one or more tasks that perform build steps.**
 	
