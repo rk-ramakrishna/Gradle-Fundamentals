@@ -215,9 +215,12 @@ Gradle greatly simplifies the build process and automates build management.**
 	 
     * The path of the task is the concatenation of the owning project's path and the task's name. Path elements are separated using the ":" character 	 
 	
-	* Every single task has a list of actions that are executed while the task is run.
+	* **Every single task has a list of actions that are executed while the task is run**
 
-	* doFirst and doLast methods are used to add an action at the beginning or to the end of the list respectively. 
+	* **doFirst and doLast methods are used to add an action at the beginning or to the end of the list respectively** 
+	
+	* **Tip**
+	  If you use Groovy to implement Gradle scripts you may also spot << which is nothing else than an alias for doLast method. It’s been already deprecated and scheduled to be removed, however it still remains quite popular.
 	
 	* It’s possible to add multiple actions to a task, however it is rare.
 
@@ -245,27 +248,9 @@ Gradle greatly simplifies the build process and automates build management.**
 			<img src="static/images/task_properties.PNG">
 		</p>
 	
- 	  
-    
-    * Below are few examples to define task in Gradle file  
+    * Please refer various examples of defining Gradle tasks here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example	 
       
-      * **Example-I:**       </br>
-			task upper {                                         </br> 
-					doLast {                                     </br>
-						String someString = 'mY_nAmE'            </br>
-						println "Original: $someString"          </br>   
-						println "Upper case: ${someString.toUpperCase()}"           </br>
-						  }                                      </br>
-					  }                                          </br>
-					  
-    
-	
-	* **Tip**
-	  If you use Groovy to implement Gradle scripts you may also spot << which is nothing else than an alias for doLast method. It’s been already deprecated and scheduled to be removed, however it still remains quite popular. 
 
-	
-		
-	
 ## References
 
 	* Gradle user guide https://docs.gradle.org/current/userguide/userguide.html

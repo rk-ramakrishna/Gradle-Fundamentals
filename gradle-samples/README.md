@@ -5,6 +5,7 @@ Gradle Samples
 
 * [Hello Gradle world example](#hello-gradle-world-example)
 * [Project properties example](#project-properties-example)
+* [Various ways to define tasks](#various-ways-to-define-tasks)
 
 
 ## Hello Gradle world example
@@ -35,4 +36,20 @@ Gradle Samples
 		project group is ----> org.gradle.api   
 		project version is ----> 0.0.1    
 
-	
+
+## Various ways to define tasks
+
+1. 	Run below command to display configurations of tasks 
+
+	 **gradle -q -b various-ways-to-define-tasks.gradle**    <br/>
+			**or**  <br/>
+	**.\gradlew -q -b various-ways-to-define-tasks.gradle**  <br/> <br/>
+	 
+	 
+2.  Below is the output of running above command 	
+
+		It's taskA configuration
+		It's taskB configuration
+
+
+	 

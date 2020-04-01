@@ -11,8 +11,6 @@ Initialisation — in this phase Gradle resolves which projects (yes, plural in ca
 Configuration — in this phase previously created Project objects are configured, and for every single object related build script is executed. Tasks, configurations and multiple other objects are created and configured accordingly at this phase.
 
 Execution — in this phase the tasks created in the previous phase and resolved based on the arguments passed via command line interface are executed.
-In our simple snippet, there’s no execution phase at all, no additional arguments were passed. Since everything happens in configuration phase — b and d are skipped. What’s important, although e was printed to the standard output, it doesn’t mean that task t5 has run — it has been configured.
-
 
 */
 
@@ -42,4 +40,111 @@ task taskB{
 	doLast {
 		println("Execution last in taskB")
 	}
+}
+
+
+//Below is an example of depedent task. 
+
+task taskC{
+	doLast {
+		println("It's TaskC Last execution")
+	}	
 } 
+
+task taskD{
+	dependsOn taskC
+	doLast {
+		println("It's TaskD Last execution")
+	}
+}
+
+
+//Below is another way to define depedent task. Here task dependent specified using task name  
+
+task taskE{
+	dependsOn 'taskF'
+	doLast {
+		println("It's taskE Last execution")
+	}	
+} 
+
+task taskF{
+	doLast {
+		println("It's taskF Last execution")
+	}
+}
+
+
+//Below is another way to define depedent task. Here task dependent specified using task object
+
+task taskG{
+	doLast {
+		println("It's taskG Last execution")
+	}	
+} 
+
+task taskH{
+	doLast {
+		println("It's taskH Last execution")
+	}
+}
+
+taskG.dependsOn taskH
+
+
+
+// Below is an example of defining dynamic tasks. Genreally Groovy or Kotlin used inside of tasks to define actions. 
+// But Groovy or Kotlin can be used to create dynamic tasks 
+
+4.times { counter ->
+    task "task$counter" {
+        doLast {
+            println "I'm task number $counter"
+        }
+    }
+}
+
+
+// Below is an example to change task behaviour during runtime using task API
+
+task hello {
+    doLast {
+        println 'Hello Earth'
+    }
+}
+hello.doFirst {
+    println 'Hello Venus'
+}
+
+hello.configure {
+    doFirst {
+        println 'Hello Sun!!!!'
+    }
+}
+
+hello.configure {
+    doLast {
+        println 'Hello Mars'
+    }
+}
+hello.configure {
+    doLast {
+        println 'Hello Jupiter'
+    }
+} 
+
+// Below is an example to access existing task using Groovy notation 
+
+task taskI{
+	doFirst {
+		println("It's $tasks.taskI.name list of actions need to be execute first")
+	}
+	doLast {
+		println("It's $taskI.name list of actions need to be execut last")
+	}
+}
+
+
+//Below is way to define default tasks
+
+defaultTasks 'taskC', 'taskD'
