@@ -317,13 +317,13 @@ Gradle greatly simplifies the build process and automates build management.**
 	
 10. Similarly if all subprojects are java projects with same repository, then we can define like below 
 
-	subprojects {
-     apply plugin: 'java'
+	**subprojects {**						</br>
+		**apply plugin: 'java'**			</br>
 
-		repositories {
-          mavenCentral()
-		}
-	}
+		**repositories {**					</br>
+			**mavenCentral()**				</br>
+		**}**								</br>
+	**}**									</br>
 
 11. **Note:	The allprojects block should be used to declare attributes/configuration/tasks that apply to all projects. IDE plugins are good examples of plugins 
     that can be declared inside the allprojects section.**
@@ -331,15 +331,15 @@ Gradle greatly simplifies the build process and automates build management.**
 12. It is also possible to configure behavior specific to a single subproject in the root project's build.gradle like below. 
 
 	**project (':service') {**			</br>
-		**apply plugin: 'java'**		</br>
+		**	apply plugin: 'java'**		</br>
 	**}**								</br>
 
 	**project (':repository') {**		</br>
-		**apply plugin: 'java'**		</br>	
+		**	apply plugin: 'java'**		</br>	
 	**}**								</br>
 
 	**project(':web') {**				</br>
-		**apply plugin: 'war'**			</br>
+		**	apply plugin: 'war'**			</br>
 	**}**								</br>
 	
 	
