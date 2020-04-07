@@ -289,12 +289,12 @@ Gradle greatly simplifies the build process and automates build management.**
 			<img src="static/images/multi-project-layout.PNG">
 	</p>
 	
-5. In Gradle, enable or disable of subprojects done in settings.gradle file. Below is example of enablement of subprojects. 
+5. In Gradle, enable or disable of subprojects done in **settings.gradle file**. Below is example of enablement of subprojects. 
 
-	include 'web', 'service', 'repository'    or 
-	include 'web'
-	include 'service'
-	include 'repository'
+	**include 'web', 'service', 'repository'    or**    </br> 
+	**include 'web'**      </br>		
+	**include 'service'**      </br>
+	**include 'repository'**    </br>
 
 6. In Gradle symbol : used to indicate the project hierarchy.For example, :service indicates that the service project is one level below the root (referred implicitly without a name).
    If your project exists under service/soap/util, then it will be referred to using :service:soap:util.
@@ -310,10 +310,10 @@ Gradle greatly simplifies the build process and automates build management.**
 
 9. Below is an example. All projects sharing common group name and version 
 	
-	**allprojects {**
-		**group = "com.apress.gradle"**
-		**version = "1.0.0-SNAPSHOT"**
-	}**
+	**allprojects {**						</br>						
+		**group = "com.apress.gradle"**		</br>
+		**version = "1.0.0-SNAPSHOT"**		</br>
+	**}**									</br>
 	
 10. Similarly if all subprojects are java projects with same repository, then we can define like below 
 
@@ -330,17 +330,17 @@ Gradle greatly simplifies the build process and automates build management.**
 
 12. It is also possible to configure behavior specific to a single subproject in the root project's build.gradle like below. 
 
-	project (':service') {
-		apply plugin: 'java'
-	}
+	**project (':service') {**			</br>
+		**apply plugin: 'java'**		</br>
+	**}**								</br>
 
-	project (':repository') {
-		apply plugin: 'java'
-	}
+	**project (':repository') {**		</br>
+		**apply plugin: 'java'**		</br>	
+	**}**								</br>
 
-	project(':web') {
-		apply plugin: 'war'
-	}
+	**project(':web') {**				</br>
+		**apply plugin: 'war'**			</br>
+	**}**								</br>
 	
 	
 	
