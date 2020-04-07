@@ -286,7 +286,7 @@ Gradle greatly simplifies the build process and automates build management.**
 4. The typical hierarchically structured multi project shown in below diagram 
 
 	<p align="center">
-			<img src="static/images/task_properties.PNG">
+			<img src="static/images/multi-project-layout.PNG">
 	</p>
 	
 5. In Gradle, enable or disable of subprojects done in settings.gradle file. Below is example of enablement of subprojects. 
@@ -343,12 +343,7 @@ Gradle greatly simplifies the build process and automates build management.**
 	}
 	
 	
-13. 	
-
- 
-
 	
-
 
 ## References
 
