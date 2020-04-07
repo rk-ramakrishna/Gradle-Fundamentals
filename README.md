@@ -11,6 +11,7 @@ Gradle Build automation tool
 * [Understanding Gradle Builds](#understanding-gradle-builds)
 	*  [Project](#project)		
 	*  [Task](#task)
+* [Multi-Project Builds](#multi-project-builds)	
 * [References](#references)
 
 
@@ -249,7 +250,105 @@ Gradle greatly simplifies the build process and automates build management.**
 		</p>
 	
     * Please refer various examples of defining Gradle tasks here   https://github.com/rk-ramakrishna/Gradle-Fundamentals/tree/master/gradle-samples#project-properties-example	 
-      
+	
+	* using Gradle DSL notation existing tasks can be accessed.  Below is an example 
+			
+			task hello {
+				doLast {
+					println 'Hello world!'
+						}
+				}
+			hello.doLast {
+				println "Greetings from the $hello.name task."
+			}
+    
+	*  You can define own properties at task level. To add a property named myProperty, set ext.myProperty to an initial value. Below is an example 
+	
+				task myTask {
+						ext.myProperty = "myValue"
+							}	
+
+				task printTaskProperties {
+							doLast {
+								println myTask.myProperty
+								}
+						}
+
+
+## Multi-Project Builds
+
+1. Often Entreprise projects are complex and contains multiple projects grouped under single root project 
+
+2. Gradle supports to create Entreprise projects by allowing multiple projects nested under single root project 
+
+3. **The root project allows you to define commmon dependencies, plugins and build logic instead of spreading across multiple projects** 
+
+4. The typical hierarchically structured multi project shown in below diagram 
+
+	<p align="center">
+			<img src="static/images/task_properties.PNG">
+	</p>
+	
+5. In Gradle, enable or disable of subprojects done in settings.gradle file. Below is example of enablement of subprojects. 
+
+	include 'web', 'service', 'repository'    or 
+	include 'web'
+	include 'service'
+	include 'repository'
+
+6. In Gradle symbol : used to indicate the project hierarchy.For example, :service indicates that the service project is one level below the root (referred implicitly without a name).
+   If your project exists under service/soap/util, then it will be referred to using :service:soap:util.
+
+7. Multi-Project vs. Single-Project Gradle Builds   
+	
+	*	In Multi projects, root project build.gradle file used to trigger the build of complete application 
+	
+	*	Gradle finds settings.gradle file and then verify it continas any include statements. 
+	    If settings.gradle contains any include statements then Gradle execute build as Multi project otherwise single project build 
+		
+8. Multi project builds often contains shared configuration such as plugins, dependencies, tasks etc 
+
+9. Below is an example. All projects sharing common group name and version 
+	
+	**allprojects {**
+		**group = "com.apress.gradle"**
+		**version = "1.0.0-SNAPSHOT"**
+	}**
+	
+10. Similarly if all subprojects are java projects with same repository, then we can define like below 
+
+	subprojects {
+     apply plugin: 'java'
+
+		repositories {
+          mavenCentral()
+		}
+	}
+
+11. **Note:	The allprojects block should be used to declare attributes/configuration/tasks that apply to all projects. IDE plugins are good examples of plugins 
+    that can be declared inside the allprojects section.**
+
+12. It is also possible to configure behavior specific to a single subproject in the root project's build.gradle like below. 
+
+	project (':service') {
+		apply plugin: 'java'
+	}
+
+	project (':repository') {
+		apply plugin: 'java'
+	}
+
+	project(':web') {
+		apply plugin: 'war'
+	}
+	
+	
+13. 	
+
+ 
+
+	
+
 
 ## References
 
