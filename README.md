@@ -11,7 +11,8 @@ Gradle Build automation tool
 * [Understanding Gradle Builds](#understanding-gradle-builds)
 	*  [Project](#project)		
 	*  [Task](#task)
-* [Multi-Project Builds](#multi-project-builds)	
+* [Multi-Project Builds](#multi-project-builds)
+* [Gradle dependency tree](#gradle-dependency-tree)
 * [References](#references)
 
 
@@ -343,7 +344,19 @@ Gradle greatly simplifies the build process and automates build management.**
 	**}**								</br>
 	
 	
-	
+## Gradle dependency tree
+
+1. In Gradle a configuration represents a group of artifacts that you want to use in some way in your build.
+
+2. Gradle build file contains so many configurations, **dependencies** one of the gradle build file configuration. Below is an example 
+	Example:  dependencies {
+    				 implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.2'
+			       } 
+3. How Maven treates dependencies as compile time dependencies, runtime dependencies similarly Gradle treats dependencies as compile time, runtime, testcompile time, testruntime dependencies.
+
+4. Different classifiers exists in Gradle are - **compileOnly**, **runTimeOnly**, **implementation** 
+
+5. If you want a dependency part of compile time and runtime, then define that dependency as part of **implementation** classifier.    
 
 ## References
 
